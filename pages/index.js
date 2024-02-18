@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useRef, useState, useEffect } from "react";
-import img1 from "../public/img/img1.jpg";
+import img1 from "../Assets/img1.jpg";
 import imgs2 from "../Assets/imgs2.jpg";
 
 import { AnimatePresence, motion } from "framer-motion";
