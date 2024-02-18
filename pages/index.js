@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import img1 from "../Assets/img1.jpg";
 import imgs2 from "../Assets/imgs2.jpg";
 
@@ -50,13 +51,13 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    "/Assets/img1.jpg",
-    "https://photos.google.com/share/AF1QipPkRm9jq8Ippn_PDCiK0cjM8fhjAQOBdqf3SBkP2A1E6VLdxPBg2OsxVlC_NkoWdA/photo/AF1QipO3cfVHNxv7umEfY_ZjgcwbYpPmds14qgm94ONF?key=dV9tTFB0S1RxaW91VFk2SEtZSHRYOXZYSTg4RkdB",
-    "https://i.ibb.co/jrRb11q/img2.jpg",
-    "https://i.ibb.co/NSwVv8D/img3.jpg",
-    "https://i.ibb.co/Bq4Q0M8/img4.jpg",
-    "https://i.ibb.co/jTQfmTq/img5.jpg",
-    "https://i.ibb.co/RNkk6L0/img6.jpg",
+    "https://i.ibb.co/J3dPFWR/img1.jpg",
+    "https://i.ibb.co/BtPzYQm/imgs2.jpg",
+    "https://i.ibb.co/yfN8BnR/imgs3.jpg",
+    "https://i.ibb.co/H4m9Kd0/imgs4.jpg",
+    "https://i.ibb.co/44431Mm/imgs5.jpg",
+    "https://i.ibb.co/8MJtLss/imgs6.jpg",
+    "https://i.ibb.co/wQ6rR1B/img7.jpg",
   ];
 
   useEffect(() => {
@@ -99,7 +100,7 @@ export default function Home() {
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/jrRb11q/img1.jpg)",
+              backgroundImage: "url(https://i.ibb.co/J3dPFWR/img1.jpg)",
             }}
           >
             <div className="content">
@@ -114,7 +115,7 @@ export default function Home() {
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/jrRb11q/img2.jpg)",
+              backgroundImage: "url(https://i.ibb.co/BtPzYQm/imgs2.jpg)",
             }}
           >
             <div className="content">
@@ -129,7 +130,7 @@ export default function Home() {
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/NSwVv8D/img3.jpg)",
+              backgroundImage: "url(https://i.ibb.co/yfN8BnR/imgs3.jpg)",
             }}
           >
             <div className="content">
@@ -144,7 +145,7 @@ export default function Home() {
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/Bq4Q0M8/img4.jpg)",
+              backgroundImage: "url(https://i.ibb.co/H4m9Kd0/imgs4.jpg)",
             }}
           >
             <div className="content">
@@ -159,7 +160,7 @@ export default function Home() {
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/jTQfmTq/img5.jpg)",
+              backgroundImage: "url(https://i.ibb.co/44431Mm/imgs5.jpg)",
             }}
           >
             <div className="content">
@@ -174,7 +175,7 @@ export default function Home() {
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/RNkk6L0/img6.jpg)",
+              backgroundImage: "url(https://i.ibb.co/8MJtLss/imgs6.jpg)",
             }}
           >
             <div className="content">
@@ -287,6 +288,9 @@ export default function Home() {
           background-size: cover;
           display: inline-block;
           transition: 0.5s;
+        }
+        .container .slide .item:hover {
+          transform: scale(1.1);
         }
 
         .slide .item:nth-child(1),
@@ -479,6 +483,9 @@ export default function Home() {
           background-size: cover;
           display: inline-block;
           transition: 0.5s;
+        }
+        .container .slide .item:hover {
+          transform: scale(1.1);
         }
 
         .slide .item:nth-child(1),
