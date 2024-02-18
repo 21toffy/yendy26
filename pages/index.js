@@ -50,8 +50,8 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    img1,
-    imgs2,
+    "/Assets/img1.jpg",
+    "https://photos.google.com/share/AF1QipPkRm9jq8Ippn_PDCiK0cjM8fhjAQOBdqf3SBkP2A1E6VLdxPBg2OsxVlC_NkoWdA/photo/AF1QipO3cfVHNxv7umEfY_ZjgcwbYpPmds14qgm94ONF?key=dV9tTFB0S1RxaW91VFk2SEtZSHRYOXZYSTg4RkdB",
     "https://i.ibb.co/jrRb11q/img2.jpg",
     "https://i.ibb.co/NSwVv8D/img3.jpg",
     "https://i.ibb.co/Bq4Q0M8/img4.jpg",
