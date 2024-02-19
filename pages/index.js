@@ -1,11 +1,11 @@
 import Head from "next/head";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import ConfettiExplosion from 'react-confetti-explosion';
 import dynamic from 'next/dynamic';
-import Confetti from 'react-confetti'
 import useWindowSize from "@rooks/use-window-size"
 // import soundfile from "./alert.mp3";
+
+
 
 const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'), {
   ssr: false,
@@ -14,34 +14,7 @@ const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'
 import { AnimatePresence, motion } from "framer-motion";
 export default function Home() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-  const [isVisible, setisVisible] = useState(true);
-  const [isExploding, setIsExploding] = React.useState(true);
-  const handleToggleClick = () => {
-    setIsOverlayOpen(!isOverlayOpen);
-  };
-
-
-  const [audioLoaded, setAudioLoaded] = useState(false);
-
-
-  const audioRef = useRef(null);
-
-  // useEffect(() => {
-  //   audioRef.current = new Audio("../audio/birthday.mp3");
-
-  //   const handleAudioLoad = () => {
-  //     if (audioRef.current) {
-  //       audioRef.current.loop = true;
-  //       audioRef.current.play();
-  //     }
-  //   };
-  //   audioRef.current.addEventListener('canplaythrough', handleAudioLoad);
-  //   return () => {
-  //     audioRef.current.removeEventListener('canplaythrough', handleAudioLoad);
-  //   };
-  // }, []);
-
-
+  const [isExploding, setIsExploding] = useState(true);
 
   useEffect(() => {
     let intervalId;
@@ -58,14 +31,22 @@ export default function Home() {
     // Clean up the interval on component unmount
     return () => clearInterval(intervalId);
   }, [isExploding]);
+
+  
+
+
+
+
+
+
   const slideRef = useRef(null);
 
   const handleNextClick = () => {
     const items = slideRef.current.querySelectorAll(".item");
     slideRef.current.appendChild(items[0]);
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % items.length);
-
     setIsExploding(true);
+    generateConfetti()
   };
 
   const handlePrevClick = () => {
@@ -76,10 +57,20 @@ export default function Home() {
     );
 
     setIsExploding(true);
+    generateConfetti()
   };
 
-  const [containerWidth, setContainerWidth] = useState(0);
+
+  const generateConfetti = () => {
+    setShowConfetti(true);
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 700);  // Adjust the timeout to match the animation duration
+  };
+
   const [containerHeight, setContainerHeight] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -124,19 +115,17 @@ export default function Home() {
   // const { width, height } = useWindowSize()
   const { innerWidth, innerHeight } = useWindowSize();
 
+
   return (
     <>
-          <Confetti
-      width={{innerWidth}}
-      height={innerHeight}
-    />
 
+{/* <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
+<DynamicConfettiExplosion /> */}
+
 
 
     
@@ -170,12 +159,11 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name">Switzerland</div>
+              <div className="name">Happy birthday, eternal youth!</div>
               <div className="des">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab,
-                eum!
+
               </div>
-              <button>See More</button>
+
             </div>
           </div>
           <div
@@ -185,12 +173,10 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name">Finland</div>
+              <div className="name">Many Happy returns</div>
               <div className="des">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab,
-                eum!
+
               </div>
-              <button>See More</button>
             </div>
           </div>
           <div
@@ -200,12 +186,10 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name">Iceland</div>
+              <div className="name">it's your birthday, Happy birthday !!</div>
               <div className="des">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab,
-                eum!
+
               </div>
-              <button>See More</button>
             </div>
           </div>
           <div
@@ -215,12 +199,10 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name">Australia</div>
+              <div className="name">Whose baby?</div>
               <div className="des">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab,
-                eum!
+
               </div>
-              <button>See More</button>
             </div>
           </div>
           <div
@@ -230,12 +212,10 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name">Netherlands</div>
+              <div className="name">Happy birthday Christy!!</div>
               <div className="des">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab,
-                eum!
+
               </div>
-              <button>See More</button>
             </div>
           </div>
           <div
@@ -245,10 +225,9 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name">Ireland</div>
+              <div className="name">New Level unlocked</div>
               <div className="des">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab,
-                eum!
+     
               </div>
               <button>See More</button>
             </div>
@@ -259,9 +238,13 @@ export default function Home() {
           <button className="prev" onClick={handlePrevClick}>
             <i className="fas fa-arrow-left"></i>
           </button>
+
           <button className="next" onClick={handleNextClick}>
             <i className="fas fa-arrow-right"></i>
           </button>
+
+ 
+
         </div>
       </div>
 
