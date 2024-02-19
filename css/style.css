@@ -290,7 +290,6 @@ h2 {
 .masthead {
 	height: 100vh;
 	min-height: 500px;
-	background-image: url("../img/1.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -305,7 +304,6 @@ h2 {
 .masthead-2 {
 	height: 100vh;
 	min-height: 500px;
-	background-image: url("../img/9.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -320,7 +318,6 @@ h2 {
 .masthead-3 {
 	height: 100vh;
 	min-height: 500px;
-	background-image: url("../img/7.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -342,7 +339,6 @@ h2 {
 }
 
 .split-image-left {
-	background-image: url("../img/4.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -350,7 +346,6 @@ h2 {
 }
 
 .split-image-right {
-	background-image: url("../img/3.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -529,7 +524,6 @@ h2 {
 .spot {
 	height: 100vh;
 	min-height: 500px;
-	background-image: url("../img/12.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -543,7 +537,6 @@ h2 {
 .spot-2 {
 	height: 100vh;
 	min-height: 500px;
-	background-image: url("../img/2.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -557,7 +550,6 @@ h2 {
 .spot-3 {
 	height: 100vh;
 	min-height: 500px;
-	background-image: url("../img/8.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -571,7 +563,6 @@ h2 {
 .spot-4 {
 	height: 100vh;
 	min-height: 500px;
-	background-image: url("../img/1.jpeg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

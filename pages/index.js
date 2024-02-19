@@ -1,24 +1,71 @@
 import Head from "next/head";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import img1 from "../Assets/img1.jpg";
-import imgs2 from "../Assets/imgs2.jpg";
+import ConfettiExplosion from 'react-confetti-explosion';
+import dynamic from 'next/dynamic';
+import Confetti from 'react-confetti'
+import useWindowSize from "@rooks/use-window-size"
+// import soundfile from "./alert.mp3";
+
+const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'), {
+  ssr: false,
+});
 
 import { AnimatePresence, motion } from "framer-motion";
 export default function Home() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isVisible, setisVisible] = useState(true);
-
+  const [isExploding, setIsExploding] = React.useState(true);
   const handleToggleClick = () => {
     setIsOverlayOpen(!isOverlayOpen);
   };
 
+
+  const [audioLoaded, setAudioLoaded] = useState(false);
+
+
+  const audioRef = useRef(null);
+
+  // useEffect(() => {
+  //   audioRef.current = new Audio("../audio/birthday.mp3");
+
+  //   const handleAudioLoad = () => {
+  //     if (audioRef.current) {
+  //       audioRef.current.loop = true;
+  //       audioRef.current.play();
+  //     }
+  //   };
+  //   audioRef.current.addEventListener('canplaythrough', handleAudioLoad);
+  //   return () => {
+  //     audioRef.current.removeEventListener('canplaythrough', handleAudioLoad);
+  //   };
+  // }, []);
+
+
+
+  useEffect(() => {
+    let intervalId;
+
+    // Start the explosion initially
+
+    // Set interval to trigger explosion every 3 seconds (adjust as needed)
+    intervalId = setInterval(() => {
+    setIsExploding(false);
+
+      console.log(1, isExploding)
+    }, 3000); // Adjust the interval as needed (e.g., every 3 seconds)
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [isExploding]);
   const slideRef = useRef(null);
 
   const handleNextClick = () => {
     const items = slideRef.current.querySelectorAll(".item");
     slideRef.current.appendChild(items[0]);
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % items.length);
+
+    setIsExploding(true);
   };
 
   const handlePrevClick = () => {
@@ -27,6 +74,8 @@ export default function Home() {
     setCurrentImageIndex(
       (prevIndex) => (prevIndex - 1 + items.length) % items.length
     );
+
+    setIsExploding(true);
   };
 
   const [containerWidth, setContainerWidth] = useState(0);
@@ -72,9 +121,25 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  // const { width, height } = useWindowSize()
+  const { innerWidth, innerHeight } = useWindowSize();
 
   return (
     <>
+          <Confetti
+      width={{innerWidth}}
+      height={innerHeight}
+    />
+
+<DynamicConfettiExplosion />
+<DynamicConfettiExplosion />
+<DynamicConfettiExplosion />
+<DynamicConfettiExplosion />
+<DynamicConfettiExplosion />
+<DynamicConfettiExplosion />
+
+
+    
       <Head>
         {/* Font Awesome CDN */}
         <link
@@ -96,6 +161,7 @@ export default function Home() {
           height: `${containerHeight}px`,
         }}
       >
+        
         <div className="slide" ref={slideRef}>
           <div
             className="item"
