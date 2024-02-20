@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import useWindowSize from "@rooks/use-window-size"
 // import soundfile from "./alert.mp3";
 
+import { useThrowRandomConfetti } from '@guanghechen/react-confetti'
 
 
 const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'), {
@@ -13,6 +14,11 @@ const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'
 
 import { AnimatePresence, motion } from "framer-motion";
 export default function Home() {
+  const throwConfetti = useThrowRandomConfetti()
+  const [tick, setTick] = useState(0)
+  useEffect(() => {
+    if (tick > 0) void throwConfetti()
+  }, [tick])
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isExploding, setIsExploding] = useState(true);
 
@@ -46,7 +52,7 @@ export default function Home() {
     slideRef.current.appendChild(items[0]);
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % items.length);
     setIsExploding(true);
-    generateConfetti()
+    setTick(c => c + 1)
   };
 
   const handlePrevClick = () => {
@@ -57,7 +63,7 @@ export default function Home() {
     );
 
     setIsExploding(true);
-    generateConfetti()
+    setTick(c => c + 1)
   };
 
 
@@ -119,12 +125,12 @@ export default function Home() {
   return (
     <>
 
-{/* <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
 <DynamicConfettiExplosion />
-<DynamicConfettiExplosion /> */}
+<DynamicConfettiExplosion />
+<DynamicConfettiExplosion />
 
 
 
@@ -229,7 +235,6 @@ export default function Home() {
               <div className="des">
      
               </div>
-              <button>See More</button>
             </div>
           </div>
         </div>
@@ -616,6 +621,43 @@ export default function Home() {
           }
         }
 
+.field {
+	display: flex;
+	width: 330px;
+	justify-content: space-around;
+}
+
+.sns-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	border: none;
+	transition-duration: .5s;
+	transform: rotateX(45deg);
+	box-shadow: 0px 10px 5px rgba(0, 0, 0, .3);
+	cursor: pointer;
+	&--twitter {
+		background-color: #1da1f2;
+	}
+	&--facebook {
+		background-color: #3b5998;
+	}
+	&--instagram {
+		background-color: #dd2b75;
+	}
+	&:hover {
+		transform: scale(1.2);
+		box-shadow: none;
+	}
+	&__icon {
+		font-size: 33px;
+		letter-spacing: 0.1em;
+		color: #fff;
+	}
+}
         .button {
           display: flex;
           justify-content: center;

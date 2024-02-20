@@ -6,6 +6,7 @@
     "start": "next start -p 5001"
   },
   "dependencies": {
+    "@guanghechen/react-confetti": "^2.3.14",
     "@rooks/use-window-size": "^4.11.2",
     "bootstrap": "^4.4.1",
     "framer-motion": "^11.0.3",
