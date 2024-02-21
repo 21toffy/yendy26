@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import useWindowSize from "@rooks/use-window-size";
+// import useWindowSize from "@rooks/use-window-size";
 // import soundfile from "./alert.mp3";
 
 import { useThrowRandomConfetti } from "@guanghechen/react-confetti";
@@ -112,7 +112,7 @@ export default function Home() {
     };
   }, []);
   // const { width, height } = useWindowSize()
-  const { innerWidth, innerHeight } = useWindowSize();
+  // const { innerWidth, innerHeight } = useWindowSize();
 
   return (
     <>
