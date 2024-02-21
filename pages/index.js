@@ -1,24 +1,26 @@
 import Head from "next/head";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import dynamic from 'next/dynamic';
-import useWindowSize from "@rooks/use-window-size"
+import dynamic from "next/dynamic";
+import useWindowSize from "@rooks/use-window-size";
 // import soundfile from "./alert.mp3";
 
-import { useThrowRandomConfetti } from '@guanghechen/react-confetti'
+import { useThrowRandomConfetti } from "@guanghechen/react-confetti";
 
-
-const DynamicConfettiExplosion = dynamic(() => import('react-confetti-explosion'), {
-  ssr: false,
-});
+const DynamicConfettiExplosion = dynamic(
+  () => import("react-confetti-explosion"),
+  {
+    ssr: false,
+  }
+);
 
 import { AnimatePresence, motion } from "framer-motion";
 export default function Home() {
-  const throwConfetti = useThrowRandomConfetti()
-  const [tick, setTick] = useState(0)
+  const throwConfetti = useThrowRandomConfetti();
+  const [tick, setTick] = useState(0);
   useEffect(() => {
-    if (tick > 0) void throwConfetti()
-  }, [tick])
+    if (tick > 0) void throwConfetti();
+  }, [tick]);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isExploding, setIsExploding] = useState(true);
 
@@ -29,21 +31,14 @@ export default function Home() {
 
     // Set interval to trigger explosion every 3 seconds (adjust as needed)
     intervalId = setInterval(() => {
-    setIsExploding(false);
+      setIsExploding(false);
 
-      console.log(1, isExploding)
+      console.log(1, isExploding);
     }, 3000); // Adjust the interval as needed (e.g., every 3 seconds)
 
     // Clean up the interval on component unmount
     return () => clearInterval(intervalId);
   }, [isExploding]);
-
-  
-
-
-
-
-
 
   const slideRef = useRef(null);
 
@@ -52,7 +47,7 @@ export default function Home() {
     slideRef.current.appendChild(items[0]);
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % items.length);
     setIsExploding(true);
-    setTick(c => c + 1)
+    setTick((c) => c + 1);
   };
 
   const handlePrevClick = () => {
@@ -63,20 +58,18 @@ export default function Home() {
     );
 
     setIsExploding(true);
-    setTick(c => c + 1)
+    setTick((c) => c + 1);
   };
-
 
   const generateConfetti = () => {
     setShowConfetti(true);
     setTimeout(() => {
       setShowConfetti(false);
-    }, 700);  // Adjust the timeout to match the animation duration
+    }, 700); // Adjust the timeout to match the animation duration
   };
 
   const [containerHeight, setContainerHeight] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -121,20 +114,15 @@ export default function Home() {
   // const { width, height } = useWindowSize()
   const { innerWidth, innerHeight } = useWindowSize();
 
-
   return (
     <>
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
 
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-
-
-
-    
       <Head>
         {/* Font Awesome CDN */}
         <link
@@ -156,7 +144,6 @@ export default function Home() {
           height: `${containerHeight}px`,
         }}
       >
-        
         <div className="slide" ref={slideRef}>
           <div
             className="item"
@@ -166,10 +153,7 @@ export default function Home() {
           >
             <div className="content">
               <div className="name">Happy birthday, eternal youth!</div>
-              <div className="des">
-
-              </div>
-
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -180,9 +164,7 @@ export default function Home() {
           >
             <div className="content">
               <div className="name">Many Happy returns</div>
-              <div className="des">
-
-              </div>
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -193,9 +175,7 @@ export default function Home() {
           >
             <div className="content">
               <div className="name">it's your birthday, Happy birthday !!</div>
-              <div className="des">
-
-              </div>
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -206,9 +186,7 @@ export default function Home() {
           >
             <div className="content">
               <div className="name">Whose baby?</div>
-              <div className="des">
-
-              </div>
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -219,9 +197,7 @@ export default function Home() {
           >
             <div className="content">
               <div className="name">Happy birthday Christy!!</div>
-              <div className="des">
-
-              </div>
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -232,9 +208,7 @@ export default function Home() {
           >
             <div className="content">
               <div className="name">New Level unlocked</div>
-              <div className="des">
-     
-              </div>
+              <div className="des"></div>
             </div>
           </div>
         </div>
@@ -247,9 +221,6 @@ export default function Home() {
           <button className="next" onClick={handleNextClick}>
             <i className="fas fa-arrow-right"></i>
           </button>
-
- 
-
         </div>
       </div>
 
@@ -621,43 +592,43 @@ export default function Home() {
           }
         }
 
-.field {
-	display: flex;
-	width: 330px;
-	justify-content: space-around;
-}
+        .field {
+          display: flex;
+          width: 330px;
+          justify-content: space-around;
+        }
 
-.sns-btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 70px;
-	width: 70px;
-	border-radius: 50%;
-	border: none;
-	transition-duration: .5s;
-	transform: rotateX(45deg);
-	box-shadow: 0px 10px 5px rgba(0, 0, 0, .3);
-	cursor: pointer;
-	&--twitter {
-		background-color: #1da1f2;
-	}
-	&--facebook {
-		background-color: #3b5998;
-	}
-	&--instagram {
-		background-color: #dd2b75;
-	}
-	&:hover {
-		transform: scale(1.2);
-		box-shadow: none;
-	}
-	&__icon {
-		font-size: 33px;
-		letter-spacing: 0.1em;
-		color: #fff;
-	}
-}
+        .sns-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+          border: none;
+          transition-duration: 0.5s;
+          transform: rotateX(45deg);
+          box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.3);
+          cursor: pointer;
+          &--twitter {
+            background-color: #1da1f2;
+          }
+          &--facebook {
+            background-color: #3b5998;
+          }
+          &--instagram {
+            background-color: #dd2b75;
+          }
+          &:hover {
+            transform: scale(1.2);
+            box-shadow: none;
+          }
+          &__icon {
+            font-size: 33px;
+            letter-spacing: 0.1em;
+            color: #fff;
+          }
+        }
         .button {
           display: flex;
           justify-content: center;
