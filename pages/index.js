@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 // import useWindowSize from "@rooks/use-window-size";
 // import soundfile from "./alert.mp3";
-import { useAudio } from '../contexts/AudioContext';
+import { useAudio } from "../contexts/AudioContext";
 
 import { useThrowRandomConfetti } from "@guanghechen/react-confetti";
 
@@ -12,16 +12,15 @@ const DynamicConfettiExplosion = dynamic(
   () => import("react-confetti-explosion"),
   {
     ssr: false,
-  }
+  },
 );
 
 import { AnimatePresence, motion } from "framer-motion";
 export default function Home() {
-
   const [isPrevButtonClicked, setPrevButtonClicked] = useState(false);
   const [isNextButtonClicked, setNextButtonClicked] = useState(false);
-  const throwConfetti = useThrowRandomConfetti()
-  const [tick, setTick] = useState(0)
+  const throwConfetti = useThrowRandomConfetti();
+  const [tick, setTick] = useState(0);
   useEffect(() => {
     if (tick > 0) void throwConfetti();
   }, [tick]);
@@ -45,8 +44,10 @@ export default function Home() {
   }, [isExploding]);
 
   const slideRef = useRef(null);
+  const audioRef = useRef(null);
 
   const handleNextClick = () => {
+    audioRef.current.play();
     setNextButtonClicked(!isNextButtonClicked);
 
     const items = slideRef.current.querySelectorAll(".item");
@@ -57,12 +58,13 @@ export default function Home() {
   };
 
   const handlePrevClick = () => {
+    audioRef.current.play();
     setPrevButtonClicked(!isPrevButtonClicked);
 
     const items = slideRef.current.querySelectorAll(".item");
     slideRef.current.prepend(items[items.length - 1]);
     setCurrentImageIndex(
-      (prevIndex) => (prevIndex - 1 + items.length) % items.length
+      (prevIndex) => (prevIndex - 1 + items.length) % items.length,
     );
 
     setIsExploding(true);
@@ -107,11 +109,11 @@ export default function Home() {
     "https://i.ibb.co/wQ6rR1B/img7.jpg",
 
     "https://i.ibb.co/Gn0rLD5/7fd81223-eb83-4854-9841-64b1db002b19.jpg",
-"https://i.ibb.co/t3xqtB7/34aa1ad8-cef3-4af5-b605-43965671139a.jpg",
-"https://i.ibb.co/cwhYq4b/40d299da-c3a5-41d6-a036-fdbb36c31a5d.jpg",
-// "https://i.ibb.co/D45JNwf/94f30a4f-212f-4bc1-b906-267b5ba253c5.jpg",
-// "https://i.ibb.co/ngkrK22/9153874e-4006-4240-a243-5abe1a5d2974.jpg",
-// "https://i.ibb.co/589mYQH/cb8caf15-d811-4946-91af-0d3233af4f41.jpg",
+    "https://i.ibb.co/t3xqtB7/34aa1ad8-cef3-4af5-b605-43965671139a.jpg",
+    "https://i.ibb.co/cwhYq4b/40d299da-c3a5-41d6-a036-fdbb36c31a5d.jpg",
+    // "https://i.ibb.co/D45JNwf/94f30a4f-212f-4bc1-b906-267b5ba253c5.jpg",
+    // "https://i.ibb.co/ngkrK22/9153874e-4006-4240-a243-5abe1a5d2974.jpg",
+    // "https://i.ibb.co/589mYQH/cb8caf15-d811-4946-91af-0d3233af4f41.jpg",
   ];
 
   useEffect(() => {
@@ -127,35 +129,26 @@ export default function Home() {
     };
   }, []);
 
-  const [audioSrc, setAudioSrc] = useState('./birthday.mp3');
+  const [audioSrc, setAudioSrc] = useState("./birthday.mp3");
   const [isPlaying, setIsPlaying] = useState(true);
 
-
   useEffect(() => {
-    setAudioSrc('./birthday.mp3');
+    setAudioSrc("./birthday.mp3");
   }, []);
-
 
   const stopAudio = () => {
     setIsPlaying(false);
   };
 
-
-
   return (
     <>
-      <audio src={audioSrc} autoPlay={isPlaying} onEnded={stopAudio} />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
+      <DynamicConfettiExplosion />
 
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-<DynamicConfettiExplosion />
-
-
-
-    
       <Head>
         {/* Font Awesome CDN */}
         <link
@@ -167,6 +160,10 @@ export default function Home() {
         />
       </Head>
 
+
+      <audio 
+        ref={audioRef}
+        src={"/birthday.mp3"} loop={true} />
       <div
         className="container"
         style={{
@@ -185,11 +182,10 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name"><h1>Happy birthday, eternal youth!</h1></div>
-              <div className="des">
-
+              <div className="name">
+                <h1>Happy birthday, eternal youth!</h1>
               </div>
-
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -200,10 +196,8 @@ export default function Home() {
           >
             <div className="content">
               <div className="name">
-              <h1>Many Happy Returns</h1>
-
+                <h1>Many Happy Returns</h1>
               </div>
-
             </div>
           </div>
           <div
@@ -213,10 +207,10 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name"><h1>it's your birthday, Happy birthday !!</h1></div>
-              <div className="des">
-
+              <div className="name">
+                <h1>it's your birthday, Happy birthday !!</h1>
               </div>
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -226,7 +220,9 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name"><h1>Another year, more awsome!!</h1></div>
+              <div className="name">
+                <h1>Another year, more awsome!!</h1>
+              </div>
               <div className="des"></div>
             </div>
           </div>
@@ -237,10 +233,10 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name"><h1>Happy birthday Christy!!</h1></div>
-              <div className="des">
-
+              <div className="name">
+                <h1>Happy birthday Christy!!</h1>
               </div>
+              <div className="des"></div>
             </div>
           </div>
           <div
@@ -250,73 +246,78 @@ export default function Home() {
             }}
           >
             <div className="content">
-              <div className="name"><h1>New Level unlock</h1></div>
-              <div className="name"><h1>ed</h1></div>
-
-              <div className="des">
-     
+              <div className="name">
+                <h1>New Level unlock</h1>
               </div>
+              <div className="name">
+                <h1>ed</h1>
+              </div>
+
+              <div className="des"></div>
             </div>
           </div>
-{/* ///////////////////////////////////////// */}
+          {/* ///////////////////////////////////////// */}
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/Gn0rLD5/7fd81223-eb83-4854-9841-64b1db002b19.jpg)",
+              backgroundImage:
+                "url(https://i.ibb.co/Gn0rLD5/7fd81223-eb83-4854-9841-64b1db002b19.jpg)",
             }}
           >
             <div className="content">
-              <div className="name"><h1>Fine wine vibes cakes. Cheers!!!</h1></div>
-              <div className="des">
-
+              <div className="name">
+                <h1>Fine wine vibes cakes. Cheers!!!</h1>
               </div>
-            </div>
-          </div>
-
-
-          <div
-            className="item"
-            style={{
-              backgroundImage: "url(https://i.ibb.co/t3xqtB7/34aa1ad8-cef3-4af5-b605-43965671139a.jpg)",
-            }}
-          >
-            <div className="content">
-              <div className="name"><h1>Cheers to another lap!!!</h1></div>
-              <div className="des">
-
-              </div>
+              <div className="des"></div>
             </div>
           </div>
 
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/cwhYq4b/40d299da-c3a5-41d6-a036-fdbb36c31a5d.jpg)",
+              backgroundImage:
+                "url(https://i.ibb.co/t3xqtB7/34aa1ad8-cef3-4af5-b605-43965671139a.jpg)",
             }}
           >
             <div className="content">
-              <div className="name"><h1>Whose baby??</h1></div>
-              <div className="des">
-
+              <div className="name">
+                <h1>Cheers to another lap!!!</h1>
               </div>
+              <div className="des"></div>
             </div>
           </div>
 
-
+          <div
+            className="item"
+            style={{
+              backgroundImage:
+                "url(https://i.ibb.co/cwhYq4b/40d299da-c3a5-41d6-a036-fdbb36c31a5d.jpg)",
+            }}
+          >
+            <div className="content">
+              <div className="name">
+                <h1>Whose baby??</h1>
+              </div>
+              <div className="des"></div>
+            </div>
+          </div>
         </div>
 
-
-
-
         <div className="button">
-      <button className={`prev ${isPrevButtonClicked ? 'pop' : ''}`} onClick={handlePrevClick}>
-        <i className="fas fa-arrow-left"></i>
-      </button>
+          <button
+            className={`prev ${isPrevButtonClicked ? "pop" : ""}`}
+            onClick={handlePrevClick}
+          >
+            <i className="fas fa-arrow-left"></i>
+          </button>
 
-      <button className={`next ${isNextButtonClicked ? 'pop' : ''}`} onClick={handleNextClick}>
-        <i className="fas fa-arrow-right"></i>
-      </button>
-    </div>
+          <button
+            className={`next ${isNextButtonClicked ? "pop" : ""}`}
+            onClick={handleNextClick}
+          >
+            <i className="fas fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
 
       <style jsx>{`
@@ -357,13 +358,19 @@ export default function Home() {
             display: block;
           }
 
-
-
-          
           .name h1 {
             font-size: 24px;
             font-weight: bold;
-            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            background: linear-gradient(
+              to right,
+              violet,
+              indigo,
+              blue,
+              green,
+              yellow,
+              orange,
+              red
+            );
             -webkit-background-clip: text;
             color: transparent;
           }
@@ -539,7 +546,16 @@ export default function Home() {
           .name h1 {
             font-size: 40px;
             font-weight: bold;
-            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            background: linear-gradient(
+              to right,
+              violet,
+              indigo,
+              blue,
+              green,
+              yellow,
+              orange,
+              red
+            );
             -webkit-background-clip: text;
             color: transparent;
           }
@@ -607,11 +623,10 @@ export default function Home() {
           box-shadow: 0 30px 50px #dbdbdb;
         }
 
-
         .button {
           display: flex;
         }
-        
+
         .prev,
         .next {
           background-color: #ff66b2; /* Pink color */
@@ -621,16 +636,17 @@ export default function Home() {
           border: 1px solid #ff66b2 !important; /* Remove border */
           border-radius: 5px;
           cursor: pointer;
-          transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+          transition:
+            transform 0.2s ease-in-out,
+            background-color 0.2s ease-in-out;
           outline: none; /* Remove outline on click */
-
         }
-        
+
         .prev:hover,
         .next:hover {
           background-color: #ff3385 !important; /* Lighter pink on hover */
         }
-        
+
         .prev.pop,
         .next.pop {
           transform: scale(1.2);
