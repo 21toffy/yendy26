@@ -111,6 +111,7 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   // const { width, height } = useWindowSize()
   // const { innerWidth, innerHeight } = useWindowSize();
 
