@@ -100,22 +100,18 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    "https://i.ibb.co/J3dPFWR/img1.jpg",
-    "https://i.ibb.co/BtPzYQm/imgs2.jpg",
-    "https://i.ibb.co/yfN8BnR/imgs3.jpg",
-    "https://i.ibb.co/H4m9Kd0/imgs4.jpg",
-    "https://i.ibb.co/44431Mm/imgs5.jpg",
-    "https://i.ibb.co/8MJtLss/imgs6.jpg",
-    "https://i.ibb.co/wQ6rR1B/img7.jpg",
+    "https://i.ibb.co/S7H3jd6/IMG-8880-Original.jpg",
+    "https://i.ibb.co/XJZYGNN/IMG-7196-Original.jpg",
+    
+    "https://i.ibb.co/9GQtX1r/IMG-5144-Original.jpg",
+    "https://i.ibb.co/HG47wFw/IMG-4933-Original.jpg",
+    "https://i.ibb.co/ZhC4t4c/IMG-3738-Original.jpg",
+    "https://i.ibb.co/Zxz5jYS/B9-EE9-F7-B-E889-4757-8-B64-E10-EDB5-FF9-A5-Original.jpg",
+    "https://i.ibb.co/m9YGtbg/310-E5382-E87-D-4-A28-A365-2504-D7-D04-C06-Original.jpg",
+    "https://i.ibb.co/J3QZGNp/IMG-2011-Original.jpg",
+    "https://i.ibb.co/KxgVJs6/IMG-0093-Original.jpg",
 
-    "https://i.ibb.co/Gn0rLD5/7fd81223-eb83-4854-9841-64b1db002b19.jpg",
-    "https://i.ibb.co/t3xqtB7/34aa1ad8-cef3-4af5-b605-43965671139a.jpg",
-    "https://i.ibb.co/cwhYq4b/40d299da-c3a5-41d6-a036-fdbb36c31a5d.jpg",
-    // "https://i.ibb.co/D45JNwf/94f30a4f-212f-4bc1-b906-267b5ba253c5.jpg",
-    // "https://i.ibb.co/ngkrK22/9153874e-4006-4240-a243-5abe1a5d2974.jpg",
-    // "https://i.ibb.co/589mYQH/cb8caf15-d811-4946-91af-0d3233af4f41.jpg",
   ];
-
   useEffect(() => {
     const handleResize = () => {
       setContainerWidth(window.innerWidth);
@@ -178,146 +174,145 @@ export default function Home() {
           <div
             className="item"
             style={{
-              backgroundImage: "url(https://i.ibb.co/J3dPFWR/img1.jpg)",
+              backgroundImage: "url(https://i.ibb.co/S7H3jd6/IMG-8880-Original.jpg)",
             }}
           >
             <div className="content">
-              <div className="name">
-                <h1>Happy birthday, eternal youth!</h1>
-              </div>
-              <div className="des"></div>
-            </div>
-          </div>
-          <div
-            className="item"
-            style={{
-              backgroundImage: "url(https://i.ibb.co/BtPzYQm/imgs2.jpg)",
-            }}
-          >
-            <div className="content">
-              <div className="name">
-                <h1>Many Happy Returns</h1>
-              </div>
-            </div>
-          </div>
-          <div
-            className="item"
-            style={{
-              backgroundImage: "url(https://i.ibb.co/yfN8BnR/imgs3.jpg)",
-            }}
-          >
-            <div className="content">
-              <div className="name">
-                <h1>it's your birthday, Happy birthday !!</h1>
-              </div>
-              <div className="des"></div>
-            </div>
-          </div>
-          <div
-            className="item"
-            style={{
-              backgroundImage: "url(https://i.ibb.co/H4m9Kd0/imgs4.jpg)",
-            }}
-          >
-            <div className="content">
-              <div className="name">
-                <h1>Another year, more awsome!!</h1>
-              </div>
-              <div className="des"></div>
-            </div>
-          </div>
-          <div
-            className="item"
-            style={{
-              backgroundImage: "url(https://i.ibb.co/44431Mm/imgs5.jpg)",
-            }}
-          >
-            <div className="content">
-              <div className="name">
-                <h1>Happy birthday Christy!!</h1>
-              </div>
-              <div className="des"></div>
-            </div>
-          </div>
-          <div
-            className="item"
-            style={{
-              backgroundImage: "url(https://i.ibb.co/8MJtLss/imgs6.jpg)",
-            }}
-          >
-            <div className="content">
-              <div className="name">
-                <h1>New Level unlock</h1>
-              </div>
-              <div className="name">
-                <h1>ed</h1>
+              <div className="name"><h1>Happy birthday, eternal youth!</h1></div>
+              <div className="des">
+
               </div>
 
-              <div className="des"></div>
             </div>
           </div>
-          {/* ///////////////////////////////////////// */}
           <div
             className="item"
             style={{
-              backgroundImage:
-                "url(https://i.ibb.co/Gn0rLD5/7fd81223-eb83-4854-9841-64b1db002b19.jpg)",
+              backgroundImage: "url(https://i.ibb.co/XJZYGNN/IMG-7196-Original.jpg)",
             }}
           >
             <div className="content">
               <div className="name">
-                <h1>Fine wine vibes cakes. Cheers!!!</h1>
+              <h1>Many Happy Returns</h1>
+
               </div>
+
+            </div>
+          </div>
+          <div
+            className="item"
+            style={{
+              backgroundImage: "url(https://i.ibb.co/9GQtX1r/IMG-5144-Original.jpg)",
+            }}
+          >
+            <div className="content">
+              <div className="name"><h1>Happy birthday Ara!!!</h1></div>
+              <div className="des">
+
+              </div>
+            </div>
+          </div>
+          <div
+            className="item"
+            style={{
+              backgroundImage: "url(https://i.ibb.co/HG47wFw/IMG-4933-Original.jpg)",
+            }}
+          >
+            <div className="content">
+              <div className="name"><h1>Happy Birthday to me!</h1></div>
               <div className="des"></div>
             </div>
           </div>
+          <div
+            className="item"
+            style={{
+              backgroundImage: "url(https://i.ibb.co/ZhC4t4c/IMG-3738-Original.jpg)",
+            }}
+          >
+            <div className="content">
+              <div className="name"><h1>I celebrate the incredible </h1></div>
+              <div className="name">
+              <h1> person I am</h1>
+              </div>
+            </div>
+          </div>
+          <div
+            className="item"
+            style={{
+              backgroundImage: "url(https://i.ibb.co/Zxz5jYS/B9-EE9-F7-B-E889-4757-8-B64-E10-EDB5-FF9-A5-Original.jpg)",
+            }}
+          >
+            <div className="content">
+              <div className="name"><h1>Anything you want, </h1></div>
+
+              <div className="name">
+              <h1>you deserve it</h1>
+              </div>
+            </div>
+          </div>
+{/* ///////////////////////////////////////// */}
+          <div
+            className="item"
+            style={{
+              backgroundImage: "url(https://i.ibb.co/m9YGtbg/310-E5382-E87-D-4-A28-A365-2504-D7-D04-C06-Original.jpg)",
+            }}
+          >
+            <div className="content">
+              <div className="name"><h1>Fine wine vibes cakes. Cheers!!!</h1></div>
+              <div className="des">
+
+              </div>
+            </div>
+          </div>
+
 
           <div
             className="item"
             style={{
-              backgroundImage:
-                "url(https://i.ibb.co/t3xqtB7/34aa1ad8-cef3-4af5-b605-43965671139a.jpg)",
+              backgroundImage: "url(https://i.ibb.co/J3QZGNp/IMG-2011-Original.jpg)",
             }}
           >
             <div className="content">
+              <div className="name"><h1>Many Happy Returns</h1></div>
               <div className="name">
-                <h1>Cheers to another lap!!!</h1>
+
               </div>
-              <div className="des"></div>
             </div>
           </div>
 
           <div
             className="item"
             style={{
-              backgroundImage:
-                "url(https://i.ibb.co/cwhYq4b/40d299da-c3a5-41d6-a036-fdbb36c31a5d.jpg)",
+              backgroundImage: "url(https://i.ibb.co/KxgVJs6/IMG-0093-Original.jpg)",
             }}
           >
             <div className="content">
+              <div className="name"><h1>Another year older, </h1></div>
               <div className="name">
-                <h1>Whose baby??</h1>
+              <h1>another reason </h1>
               </div>
-              <div className="des"></div>
+            </div>
+            <div className="name">
+              <h1> to celebrate!</h1>
+              </div>
             </div>
           </div>
+
+
         </div>
+
+
+
 
         <div className="button">
-          <button
-            className={`prev ${isPrevButtonClicked ? "pop" : ""}`}
-            onClick={handlePrevClick}
-          >
-            <i className="fas fa-arrow-left"></i>
-          </button>
+      <button className={`prev ${isPrevButtonClicked ? 'pop' : ''}`} onClick={handlePrevClick}>
+        <i className="fas fa-arrow-left"></i>
+      </button>
 
-          <button
-            className={`next ${isNextButtonClicked ? "pop" : ""}`}
-            onClick={handleNextClick}
-          >
-            <i className="fas fa-arrow-right"></i>
-          </button>
-        </div>
+      <button className={`next ${isNextButtonClicked ? 'pop' : ''}`} onClick={handleNextClick}>
+        <i className="fas fa-arrow-right"></i>
+      </button>
+    </div>
       </div>
 
       <style jsx>{`
