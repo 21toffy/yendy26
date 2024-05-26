@@ -289,13 +289,10 @@ export default function Home() {
             <div className="content">
               <div className="name"><h1>Another year older, </h1></div>
               <div className="name">
-              <h1>another reason </h1>
+              <h1>another reason to celebrate!</h1>
               </div>
             </div>
-            <div className="name">
-              <h1> to celebrate!</h1>
-              </div>
-            </div>
+
           </div>
 
 
